@@ -1,0 +1,7 @@
+{
+  "id": "docker",
+  "title": "Docker",
+  "summary": "Containerization platform for deploying applications in isolated environments",
+  "category": "Containerization",
+  "tags": ["containers", "orchestration", "devops"]
+}

@@ -1,0 +1,221 @@
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  NODE_VERSION: '18'
+  CACHE_KEY: '$CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG'
+
+# Cache configuration
+cache:
+  key: $CACHE_KEY
+  paths:
+    - node_modules/
+    - .next/
+    - .npm/
+
+# Install dependencies
+install_dependencies:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm ci --cache .npm --prefer-offline
+  cache:
+    key: $CACHE_KEY
+    paths:
+      - node_modules/
+      - .npm/
+    policy: pull-push
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# Type checking
+type_check:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run typecheck
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# Linting
+lint:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run lint
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# Unit tests
+unit_tests:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run test:coverage
+  coverage: '/Lines\s*:\s*(\d+\.\d+)%/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+      junit:
+        name: unit-tests.xml
+        path: junit.xml
+    paths:
+      - coverage/
+    expire_in: 1 week
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# E2E tests
+e2e_tests:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.55.0-jammy
+  script:
+    - npm ci
+    - npm run test:e2e
+  artifacts:
+    when: always
+    paths:
+      - playwright-report/
+      - test-results/
+    expire_in: 1 week
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# Build application
+build:
+  stage: build
+  image: node:$NODE_VERSION
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - .next/
+      - out/
+    expire_in: 1 hour
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+
+# Validate content
+validate_content:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run validate:content
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
+    - develop
+  allow_failure: true
+
+# Static export
+export_static:
+  stage: build
+  image: node:$NODE_VERSION
+  script:
+    - npm run export
+  artifacts:
+    paths:
+      - out/
+    expire_in: 1 week
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - develop
+
+# Deploy to production (example)
+deploy_production:
+  stage: deploy
+  image: node:$NODE_VERSION
+  script:
+    - echo "Deploying to production..."
+    # Add your deployment commands here
+    # Example: rsync -avz out/ user@server:/path/to/deploy/
+  environment:
+    name: production
+    url: https://your-domain.com
+  dependencies:
+    - export_static
+  only:
+    - main
+  when: manual
+
+# Deploy to staging
+deploy_staging:
+  stage: deploy
+  image: node:$NODE_VERSION
+  script:
+    - echo "Deploying to staging..."
+    # Add your staging deployment commands here
+  environment:
+    name: staging
+    url: https://staging.your-domain.com
+  dependencies:
+    - export_static
+  only:
+    - develop
+  when: manual
+
+# Quality gate
+quality_gate:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run ci:check
+  dependencies:
+    - install_dependencies
+  only:
+    - merge_requests
+  allow_failure: false
+
+# Performance test (Lighthouse)
+performance_test:
+  stage: test
+  image: node:$NODE_VERSION
+  script:
+    - npm run build
+    - npm run export
+    - npx serve out -p 3000 &
+    - npx lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-results.json
+  artifacts:
+    paths:
+      - lighthouse-results.json
+    expire_in: 1 week
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - develop
+  allow_failure: true

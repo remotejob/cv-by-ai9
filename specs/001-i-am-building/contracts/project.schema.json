@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/project.schema.json",
+  "title": "Project",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "featured", "slug", "externalUrl"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 280 },
+    "tags": { "type": "array", "items": { "type": "string" }, "maxItems": 10 },
+    "featured": { "type": "boolean" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "externalUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "ogImage": { "type": "string" }
+  }
+}

@@ -1,0 +1,284 @@
+'use client';
+
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { loadKnowledgeEntries, getUniqueCategories, getUniqueTags } from '@/lib/content';
+import { KnowledgeEntry, ContentFilters } from '@/types/content';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { KnowledgeEmptyState, SearchEmptyState, FilterEmptyState } from '@/components/empty-state';
+
+function KnowledgeContent() {
+  const searchParams = useSearchParams();
+  const [entries, setEntries] = useState<KnowledgeEntry[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
+  const [selectedTags, setSelectedTags] = useState<string[]>(searchParams.get('tags')?.split(',') || []);
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [loadedEntries, loadedCategories, loadedTags] = await Promise.all([
+          loadKnowledgeEntries(),
+          getUniqueCategories([]),
+          getUniqueTags([])
+        ]);
+
+        setEntries(loadedEntries);
+        setCategories(loadedCategories);
+        setTags(loadedTags);
+      } catch (error) {
+        console.error('Error loading knowledge data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    const filters: ContentFilters = {};
+    if (selectedCategory) filters.category = selectedCategory;
+    if (selectedTags.length > 0) filters.tags = selectedTags;
+    if (searchTerm) filters.search = searchTerm;
+
+    const updateURL = () => {
+      const params = new URLSearchParams();
+      if (selectedCategory) params.set('category', selectedCategory);
+      if (selectedTags.length > 0) params.set('tags', selectedTags.join(','));
+      if (searchTerm) params.set('search', searchTerm);
+
+      const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+      window.history.replaceState({}, '', newURL);
+    };
+
+    const applyFilters = async () => {
+      setLoading(true);
+      try {
+        const filteredEntries = await loadKnowledgeEntries(filters);
+        setEntries(filteredEntries);
+        updateURL();
+      } catch (error) {
+        console.error('Error filtering entries:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    applyFilters();
+  }, [selectedCategory, selectedTags, searchTerm]);
+
+  const handleTagToggle = (tag: string) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  const clearFilters = () => {
+    setSelectedCategory('');
+    setSelectedTags([]);
+    setSearchTerm('');
+  };
+
+  if (loading) {
+    return (
+      <main className="min-h-screen pt-20">
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <div className="text-center">
+            <p className="text-gray-5 text-body">Loading knowledge base...</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="min-h-screen pt-20" id="main-content">
+      <section className="py-16 px-4" aria-labelledby="knowledge-heading">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 id="knowledge-heading" className="text-heading-xl font-bold text-white mb-4">
+              Skills & Knowledge
+            </h1>
+            <p className="text-heading-lg text-gray-5 max-w-3xl mx-auto">
+              Explore my technical expertise across DevOps, cloud infrastructure, and automation technologies
+            </p>
+          </div>
+
+          {/* Filters */}
+          <div className="mb-8 space-y-4" role="region" aria-label="Knowledge filters">
+            {/* Search */}
+            <div className="relative">
+              <label htmlFor="knowledge-search" className="sr-only">
+                Search skills, technologies, or topics
+              </label>
+              <input
+                id="knowledge-search"
+                type="text"
+                placeholder="Search skills, technologies, or topics..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-2 bg-card-bg border border-gray-700 rounded-lg text-white placeholder-gray-5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-describedby="search-help"
+              />
+              <div id="search-help" className="sr-only">
+                Type to filter knowledge entries by title, description, or tags
+              </div>
+            </div>
+
+            {/* Category Filter */}
+            <div>
+              <label htmlFor="category-filter" className="block text-white mb-2">
+                Category
+              </label>
+              <select
+                id="category-filter"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full px-4 py-2 bg-card-bg border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-describedby="category-help"
+              >
+                <option value="">All Categories</option>
+                {categories.map(category => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+              <div id="category-help" className="sr-only">
+                Filter knowledge entries by category
+              </div>
+            </div>
+
+            {/* Tag Filter */}
+            <div>
+              <label className="block text-white mb-2">Tags</label>
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by tags">
+                {tags.slice(0, 12).map(tag => (
+                  <button
+                    key={tag}
+                    onClick={() => handleTagToggle(tag)}
+                    aria-pressed={selectedTags.includes(tag)}
+                    className={`px-3 py-1 rounded-full text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 ${
+                      selectedTags.includes(tag)
+                        ? 'bg-accent text-black'
+                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Clear Filters */}
+            {(selectedCategory || selectedTags.length > 0 || searchTerm) && (
+              <Button
+                onClick={clearFilters}
+                variant="outline"
+                size="sm"
+                className="focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-label="Clear all filters"
+              >
+                Clear All Filters
+              </Button>
+            )}
+          </div>
+
+          {/* Results */}
+          <div className="mb-4 text-gray-5 text-body" role="status" aria-live="polite">
+            Showing {entries.length} {entries.length === 1 ? 'entry' : 'entries'}
+          </div>
+
+          {entries.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {entries.map((entry) => (
+                <Card key={entry.id} className="bg-card-bg border-gray-700 hover:border-accent transition-colors h-full">
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <CardTitle className="text-white text-heading-md">{entry.title}</CardTitle>
+                      <span className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">
+                        {entry.category}
+                      </span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex flex-col h-full">
+                    <CardDescription className="text-gray-5 text-body mb-4 flex-grow">
+                      {entry.summary}
+                    </CardDescription>
+
+                    {entry.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {entry.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {entry.tags.length > 3 && (
+                          <span className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded">
+                            +{entry.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {entry.link && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="w-full mt-auto"
+                      >
+                        <Link
+                          href={entry.link.startsWith('/') ? entry.link : `/knowledge/${entry.id}`}
+                          target={entry.link.startsWith('http') ? '_blank' : undefined}
+                          rel={entry.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        >
+                          Learn More
+                        </Link>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="flex justify-center py-12">
+              {searchTerm ? (
+                <SearchEmptyState query={searchTerm} />
+              ) : selectedCategory || selectedTags.length > 0 ? (
+                <FilterEmptyState />
+              ) : (
+                <KnowledgeEmptyState />
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default function KnowledgePage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen pt-20">
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <div className="text-center">
+            <p className="text-gray-5 text-body">Loading knowledge base...</p>
+          </div>
+        </div>
+      </main>
+    }>
+      <KnowledgeContent />
+    </Suspense>
+  );
+}

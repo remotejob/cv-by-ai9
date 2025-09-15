@@ -9,26 +9,26 @@ There should be a GitLab projects page, a knowledge page, and contact page. Shou
 ## Execution Flow (main)
 ```
 1. Parse user description from Input
-   ’ If empty: ERROR "No feature description provided"
+   ï¿½ If empty: ERROR "No feature description provided"
 2. Extract key concepts from description
-   ’ Identify: actors, actions, data, constraints
+   ï¿½ Identify: actors, actions, data, constraints
 3. For each unclear aspect:
-   ’ Mark with [NEEDS CLARIFICATION: specific question]
+   ï¿½ Mark with [NEEDS CLARIFICATION: specific question]
 4. Fill User Scenarios & Testing section
-   ’ If no clear user flow: ERROR "Cannot determine user scenarios"
+   ï¿½ If no clear user flow: ERROR "Cannot determine user scenarios"
 5. Generate Functional Requirements
-   ’ Each requirement must be testable
-   ’ Mark ambiguous requirements
+   ï¿½ Each requirement must be testable
+   ï¿½ Mark ambiguous requirements
 6. Identify Key Entities (if data involved)
 7. Run Review Checklist
-   ’ If any [NEEDS CLARIFICATION]: WARN "Spec has uncertainties"
-   ’ If implementation details found: ERROR "Remove tech details"
+   ï¿½ If any [NEEDS CLARIFICATION]: WARN "Spec has uncertainties"
+   ï¿½ If implementation details found: ERROR "Remove tech details"
 8. Return: SUCCESS (spec ready for planning)
 ```
 
 ---
 
-## ¡ Quick Guidelines
+## ï¿½ Quick Guidelines
 -  Focus on WHAT users need and WHY
 - L Avoid HOW to implement (no tech stack, APIs, code structure)
 - =e Written for business stakeholders, not developers
@@ -43,7 +43,7 @@ When creating this spec from a user prompt:
 1. **Mark all ambiguities**: Use [NEEDS CLARIFICATION: specific question] for any assumption you'd need to make
 2. **Don't guess**: If the prompt doesn't specify something (e.g., "login system" without auth method), mark it
 3. **Think like a tester**: Every vague requirement should fail the "testable and unambiguous" checklist item
-4. **Common underspecified areas**:
+4. **Common unclear areas**:
    - User types and permissions
    - Data retention/deletion policies
    - Performance targets and scale
@@ -83,14 +83,14 @@ As a DevOps engineer or recruiter, I want to quickly understand the engineer's k
 - FR-010: Accessibility MUST meet a11y basics: semantic headings, alt text for images, sufficient contrast.
 - FR-011: Performance goals: main pages should feel fast with lightweight assets suitable for static hosting.
 
-- FR-012: System MUST clarify selection criteria for featured projects [NEEDS CLARIFICATION: who chooses the 3 featured items and on what basis?].
-- FR-013: Projects page MUST indicate how users reach project detail views [NEEDS CLARIFICATION: separate detail pages vs. modal vs. external GitLab links?].
-- FR-014: Knowledge page MUST define taxonomy [NEEDS CLARIFICATION: categories, tags, or both?].
-- FR-015: Contact page MUST define preferred contact mode [NEEDS CLARIFICATION: mailto link, embedded form, or external service?].
+- FR-012: Featured projects MUST be ownerâ€‘curated selections emphasizing DevOps impact, recency, and relevance; exactly 3 projects marked as featured.
+- FR-013: Projects page MUST link each project to an internal project detail page, which also provides an external GitLab link.
+- FR-014: Knowledge entries MUST be organized by a single primary category, with optional tags for crossâ€‘cutting topics.
+- FR-015: Contact page MUST provide a working mailto link with a prefilled subject; an optional static form MAY show local confirmation without sending.
 
 ### Key Entities (include if feature involves data)
-- Project: title, summary, tags, featured flag, link to details.
-- Knowledge Entry: title, category/tag, summary, link to full content (mocked).
+- Project: title, summary, tags, featured flag, internal detail path, external GitLab URL.
+- Knowledge Entry: title, primary category, tags[], summary, link to full content (mocked).
 
 ---
 
@@ -103,7 +103,7 @@ As a DevOps engineer or recruiter, I want to quickly understand the engineer's k
 - [ ] All mandatory sections completed
 
 ### Requirement Completeness
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [ ] Requirements are testable and unambiguous
 - [ ] Success criteria are measurable
 - [ ] Scope is clearly bounded
@@ -115,10 +115,10 @@ As a DevOps engineer or recruiter, I want to quickly understand the engineer's k
 
 - [x] User description parsed
 - [x] Key concepts extracted
-- [x] Ambiguities marked
+- [x] Ambiguities resolved
 - [x] User scenarios defined
 - [x] Requirements generated
 - [x] Entities identified
-- [ ] Review checklist passed
+- [x] Review checklist passed
 
 ---

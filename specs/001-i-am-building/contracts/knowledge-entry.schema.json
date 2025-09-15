@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/knowledge-entry.schema.json",
+  "title": "KnowledgeEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "category"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 280 },
+    "category": { "type": "string", "minLength": 1 },
+    "tags": { "type": "array", "items": { "type": "string" }, "maxItems": 10 },
+    "link": { "type": "string" }
+  }
+}
