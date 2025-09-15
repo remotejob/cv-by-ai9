@@ -5,7 +5,6 @@ export ANTHROPIC_MODEL=openai/gpt-5
 export ANTHROPIC_SMALL_FAST_MODEL=openai/gpt-5
 
 
-Create simple bare CONSTITUTION for static web site use @.specify/memory/constitution.md
 
 Fill the constitution with the bare minimum regiments for a static web app based on the template.
 
