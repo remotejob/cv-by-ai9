@@ -3,5 +3,33 @@
   "title": "Docker",
   "summary": "Containerization platform for deploying applications in isolated environments",
   "category": "Containerization",
-  "tags": ["containers", "orchestration", "devops"]
+  "tags": ["containers", "orchestration", "devops"],
+  "description": "Docker is a containerization platform that enables developers to package applications and their dependencies into lightweight, portable containers. These containers can run consistently across different environments, from development laptops to production servers. Docker fundamentally changed how applications are deployed and managed by providing process isolation, resource efficiency, and simplified deployment workflows.\n\nKey concepts include images (read-only templates), containers (running instances of images), Dockerfiles (build instructions), and registries (storage for images). Docker's layered filesystem and copy-on-write mechanism make it efficient for both storage and runtime performance.\n\nIn enterprise environments, Docker serves as the foundation for microservices architectures, CI/CD pipelines, and cloud-native applications. It integrates seamlessly with orchestration platforms like Kubernetes and container registries like Docker Hub or Amazon ECR.",
+  "experienceLevel": "advanced",
+  "yearsOfExperience": 5,
+  "relatedProjects": ["kubernetes-cluster-automation", "devsecops-pipeline-framework"],
+  "certifications": ["Docker Certified Associate", "Certified Kubernetes Administrator"],
+  "learningResources": [
+    {
+      "title": "Docker Official Documentation",
+      "url": "https://docs.docker.com/",
+      "type": "documentation"
+    },
+    {
+      "title": "Docker Deep Dive by Nigel Poulton",
+      "url": "https://www.pluralsight.com/courses/docker-deep-dive-update",
+      "type": "course"
+    },
+    {
+      "title": "Docker Best Practices Guide",
+      "url": "https://docs.docker.com/develop/dev-best-practices/",
+      "type": "documentation"
+    },
+    {
+      "title": "Docker Security Best Practices",
+      "url": "https://docs.docker.com/engine/security/",
+      "type": "documentation"
+    }
+  ],
+  "lastUpdated": "2025-09-16"
 }

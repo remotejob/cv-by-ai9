@@ -1,0 +1,7 @@
+{
+  "id": "opa",
+  "title": "Open Policy Agent",
+  "summary": "Policy engine for cloud-native environments enabling unified policy enforcement across microservices, Kubernetes, and APIs.",
+  "category": "Security",
+  "tags": ["policy", "governance", "kubernetes", "authorization", "rego"]
+}

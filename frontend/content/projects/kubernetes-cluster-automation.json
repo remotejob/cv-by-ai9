@@ -1,0 +1,13 @@
+{
+  "id": "kubernetes-cluster-automation",
+  "title": "Kubernetes Cluster Automation Platform",
+  "summary": "Enterprise-grade Kubernetes cluster automation with Terraform and Helm. Includes auto-scaling, monitoring, and GitLab CI/CD integration for seamless container orchestration.",
+  "content": {
+    "description": "# Kubernetes Cluster Automation Platform\n\nA comprehensive solution for automating Kubernetes cluster deployment and management at scale.\n\n## Features\n\n- Multi-cluster management with Terraform\n- Custom Helm chart repository\n- Automated scaling policies\n- GitLab CI/CD integration\n- Prometheus monitoring stack\n- Backup and disaster recovery\n\n## Technical Details\n\n- Infrastructure as Code with Terraform\n- Kubernetes cluster management\n- Custom Helm charts\n- Monitoring and alerting\n- High availability configuration\n- Security hardening\n\n## Implementation\n\nThe platform uses Terraform to provision and manage Kubernetes clusters across multiple cloud providers, with automated configuration management and deployment pipelines.",
+    "images": []
+  },
+  "tags": ["kubernetes", "terraform", "helm", "automation", "gitlab-ci", "infrastructure"],
+  "featured": true,
+  "slug": "kubernetes-cluster-automation",
+  "externalUrl": "https://gitlab.com/devops-labs/kubernetes-cluster-automation"
+}

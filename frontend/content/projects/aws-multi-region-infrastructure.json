@@ -1,0 +1,13 @@
+{
+  "id": "aws-multi-region-infrastructure",
+  "title": "AWS Multi-Region Infrastructure Framework",
+  "summary": "Highly available AWS infrastructure deployed across multiple regions using Terraform. Features automated disaster recovery, monitoring, and compliance checks.",
+  "content": {
+    "description": "# AWS Multi-Region Infrastructure Framework\n\nA comprehensive framework for deploying and managing highly available AWS infrastructure across multiple regions.\n\n## Features\n\n- Multi-region deployment automation\n- Disaster recovery procedures\n- Compliance automation\n- Infrastructure monitoring\n- Cost optimization\n\n## Technical Details\n\n- AWS infrastructure management\n- Multi-region configuration\n- Automated failover\n- Compliance scanning\n- Cost analysis and optimization\n\n## Implementation\n\nThe framework uses Terraform to manage AWS resources across multiple regions, implementing best practices for high availability and disaster recovery.",
+    "images": []
+  },
+  "tags": ["aws", "terraform", "multi-region", "high-availability", "infrastructure", "cloud"],
+  "featured": true,
+  "slug": "aws-multi-region-infrastructure",
+  "externalUrl": "https://gitlab.com/devops-labs/aws-multi-region-infrastructure"
+}

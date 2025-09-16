@@ -1,0 +1,7 @@
+{
+  "id": "ansible",
+  "title": "Ansible",
+  "summary": "Agentless automation platform for configuration management, application deployment, and infrastructure orchestration.",
+  "category": "Infrastructure as Code",
+  "tags": ["automation", "configuration", "playbooks", "agentless", "yaml"]
+}

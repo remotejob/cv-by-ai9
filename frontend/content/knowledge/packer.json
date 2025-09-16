@@ -1,0 +1,7 @@
+{
+  "id": "packer",
+  "title": "HashiCorp Packer",
+  "summary": "Tool for creating identical machine images for multiple platforms from a single source configuration, supporting immutable infrastructure.",
+  "category": "Infrastructure as Code",
+  "tags": ["image-building", "immutable-infrastructure", "multi-platform", "hashicorp", "automation"]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "gcp",
+  "title": "Google Cloud Platform",
+  "summary": "Google's cloud computing services offering computing, data storage, data analytics, and machine learning capabilities.",
+  "category": "Cloud Platforms",
+  "tags": ["cloud", "google", "machine-learning", "big-data", "kubernetes"]
+}

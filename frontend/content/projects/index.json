@@ -1,10 +1,48 @@
 [
   {
-    "id": "sample-project",
-    "title": "Sample Project",
-    "summary": "A sample project for testing",
-    "featured": false,
-    "slug": "sample-project",
-    "externalUrl": "https://github.com/example/sample-project"
-  }
-]
+    "id": "kubernetes-cluster-automation",
+    "title": "Kubernetes Cluster Automation Platform",
+    "summary": "Enterprise-grade Kubernetes cluster automation with Terraform and Helm. Includes auto-scaling, monitoring, and GitLab CI/CD integration for seamless container orchestration.",
+    "tags": ["kubernetes", "terraform", "helm", "automation", "gitlab-ci", "infrastructure"],
+    "featured": true,
+    "slug": "kubernetes-cluster-automation",
+    "externalUrl": "https://gitlab.com/devops-labs/kubernetes-cluster-automation"
+  },
+    {
+      "id": "aws-multi-region-infrastructure",
+      "title": "AWS Multi-Region Infrastructure Framework",
+      "summary": "Highly available AWS infrastructure deployed across multiple regions using Terraform. Features automated disaster recovery, monitoring, and compliance checks.",
+      "tags": ["aws", "terraform", "multi-region", "high-availability", "infrastructure", "cloud"],
+      "featured": true,
+      "slug": "aws-multi-region-infrastructure",
+      "externalUrl": "https://gitlab.com/devops-labs/aws-multi-region-infrastructure"
+    },
+    {
+      "id": "devsecops-pipeline-framework",
+      "title": "DevSecOps Pipeline Framework",
+      "summary": "Comprehensive DevSecOps pipeline integrating security scanning, compliance checks, and vulnerability management throughout the CI/CD process.",
+      "tags": ["devsecops", "security", "cicd", "compliance", "automation", "gitlab-ci"],
+      "featured": true,
+      "slug": "devsecops-pipeline-framework",
+      "externalUrl": "https://gitlab.com/devops-labs/devsecops-pipeline-framework"
+    },
+    {
+      "id": "prometheus-grafana-monitoring",
+      "title": "Prometheus & Grafana Monitoring Stack",
+      "summary": "Production-grade monitoring stack with Prometheus, Grafana, and AlertManager. Includes custom dashboards and alerting for cloud infrastructure.",
+      "tags": ["monitoring", "prometheus", "grafana", "observability", "metrics"],
+      "featured": false,
+      "slug": "prometheus-grafana-monitoring",
+      "externalUrl": "https://gitlab.com/devops-labs/prometheus-grafana-monitoring"
+    },
+    {
+      "id": "terraform-aws-modules",
+      "title": "Terraform AWS Module Collection",
+      "summary": "Reusable Terraform modules for AWS infrastructure deployment. Covers networking, computing, storage, and security components.",
+      "tags": ["terraform", "aws", "iac", "modules", "cloud"],
+      "featured": false,
+      "slug": "terraform-aws-modules",
+      "externalUrl": "https://gitlab.com/devops-labs/terraform-aws-modules"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "containerd",
+  "title": "containerd",
+  "summary": "Industry-standard container runtime that manages the complete container lifecycle for both Linux and Windows containers.",
+  "category": "Containerization",
+  "tags": ["runtime", "containers", "cri", "kubernetes", "oci"]
+}

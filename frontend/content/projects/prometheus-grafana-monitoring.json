@@ -1,0 +1,13 @@
+{
+  "id": "prometheus-grafana-monitoring",
+  "title": "Prometheus & Grafana Monitoring Stack",
+  "summary": "Production-grade monitoring stack with Prometheus, Grafana, and AlertManager. Includes custom dashboards and alerting for cloud infrastructure.",
+  "content": {
+    "description": "# Prometheus & Grafana Monitoring Stack\n\nA comprehensive monitoring solution for cloud infrastructure with real-time metrics and alerting.\n\n## Features\n\n- Prometheus metrics collection and storage\n- Custom Grafana dashboards\n- AlertManager configuration\n- Service discovery integration\n- High availability setup\n\n## Technical Details\n\n- Prometheus 2.x deployment\n- Grafana dashboard templates\n- Alert rule management\n- PromQL query optimization\n- Metrics retention policies\n\n## Implementation\n\nThe stack uses Prometheus for metrics collection and storage, with Grafana providing visualization and AlertManager handling notifications. Includes service discovery for automatic target configuration.",
+    "images": []
+  },
+  "tags": ["monitoring", "prometheus", "grafana", "observability", "metrics"],
+  "featured": false,
+  "slug": "prometheus-grafana-monitoring",
+  "externalUrl": "https://gitlab.com/devops-labs/prometheus-grafana-monitoring"
+}

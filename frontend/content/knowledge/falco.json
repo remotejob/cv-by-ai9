@@ -1,0 +1,7 @@
+{
+  "id": "falco",
+  "title": "Falco",
+  "summary": "Runtime security monitoring tool for detecting anomalous behavior and security threats in containerized environments.",
+  "category": "Security",
+  "tags": ["runtime-security", "monitoring", "kubernetes", "threat-detection", "cncf"]
+}

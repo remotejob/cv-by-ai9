@@ -16,6 +16,17 @@ export interface KnowledgeEntry {
   category: string;
   tags: string[];
   link?: string;
+  description?: string;
+  experienceLevel?: 'beginner' | 'intermediate' | 'advanced';
+  yearsOfExperience?: number;
+  relatedProjects?: string[];
+  certifications?: string[];
+  learningResources?: Array<{
+    title: string;
+    url: string;
+    type: 'documentation' | 'tutorial' | 'course' | 'certification' | 'blog';
+  }>;
+  lastUpdated?: string;
 }
 
 export interface ContentFilters {

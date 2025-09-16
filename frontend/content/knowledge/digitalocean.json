@@ -1,0 +1,7 @@
+{
+  "id": "digitalocean",
+  "title": "DigitalOcean",
+  "summary": "Cloud infrastructure provider focused on simplicity, offering droplets, managed databases, and Kubernetes services for developers.",
+  "category": "Cloud Platforms",
+  "tags": ["cloud", "droplets", "simple", "developer-friendly", "kubernetes"]
+}

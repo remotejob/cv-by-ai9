@@ -1,0 +1,7 @@
+{
+  "id": "snyk",
+  "title": "Snyk",
+  "summary": "Developer security platform for finding and fixing vulnerabilities in code, dependencies, containers, and infrastructure as code.",
+  "category": "Security",
+  "tags": ["security", "vulnerability-scanning", "dependencies", "developer-tools", "devsecops"]
+}

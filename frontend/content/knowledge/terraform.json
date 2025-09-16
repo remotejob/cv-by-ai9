@@ -1,0 +1,35 @@
+{
+  "id": "terraform",
+  "title": "Terraform",
+  "summary": "Infrastructure as Code tool for building, changing, and versioning infrastructure safely and efficiently across multiple providers.",
+  "category": "Infrastructure as Code",
+  "tags": ["iac", "infrastructure", "provisioning", "multi-cloud", "state-management"],
+  "description": "Terraform is HashiCorp's Infrastructure as Code (IaC) tool that uses a declarative configuration language to define and provision infrastructure resources across multiple cloud providers and services. Terraform's approach allows teams to version, review, and collaborate on infrastructure changes using the same workflows as application code.\n\nKey features include HCL (HashiCorp Configuration Language) for human-readable configuration, state management for tracking resource relationships, planning capabilities to preview changes before applying them, and extensive provider ecosystem supporting AWS, Azure, GCP, and hundreds of other services.\n\nTerraform excels in managing complex, multi-cloud infrastructure deployments with features like modules for reusable code, workspaces for environment isolation, and remote state management for team collaboration. Its immutable infrastructure approach ensures consistent, reproducible deployments while supporting advanced patterns like blue-green deployments and disaster recovery scenarios.",
+  "experienceLevel": "advanced",
+  "yearsOfExperience": 4,
+  "relatedProjects": ["aws-multi-region-infrastructure", "terraform-aws-modules"],
+  "certifications": ["HashiCorp Certified: Terraform Associate", "AWS Solutions Architect Associate"],
+  "learningResources": [
+    {
+      "title": "Terraform Official Documentation",
+      "url": "https://www.terraform.io/docs/",
+      "type": "documentation"
+    },
+    {
+      "title": "Terraform Up & Running by Yevgeniy Brikman",
+      "url": "https://www.terraformupandrunning.com/",
+      "type": "course"
+    },
+    {
+      "title": "HashiCorp Learn Terraform",
+      "url": "https://learn.hashicorp.com/terraform",
+      "type": "tutorial"
+    },
+    {
+      "title": "Terraform Best Practices",
+      "url": "https://www.terraform.io/docs/cloud/guides/recommended-practices/",
+      "type": "documentation"
+    }
+  ],
+  "lastUpdated": "2025-09-16"
+}

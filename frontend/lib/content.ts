@@ -1,29 +1,37 @@
 import { Project, KnowledgeEntry, ContentFilters, PaginationOptions, PaginatedResult } from '@/types/content';
 
+const RETRY_COUNT = 3;
+const RETRY_DELAY = 1000;
+
+async function fetchWithRetry(url: string, retries = RETRY_COUNT): Promise<Response> {
+  try {
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return response;
+  } catch (error) {
+    if (retries > 0) {
+      console.warn(`Retrying fetch for ${url}, ${retries} attempts remaining...`);
+      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+      return fetchWithRetry(url, retries - 1);
+    }
+    throw error;
+  }
+}
+
 export async function loadProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/projects/index.json`, {
-      cache: 'no-store'
-    });
-    if (!response.ok) {
-      throw new Error(`Failed to load projects: ${response.statusText}`);
-    }
+    const response = await fetchWithRetry(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/projects/index.json`);
     const projects = await response.json();
     return projects.map(validateProject);
   } catch (error) {
     console.error('Error loading projects:', error);
-    return [];
+    throw new Error('Failed to load projects. Check network connection and try again.');
   }
 }
 
 export async function loadProjectBySlug(slug: string): Promise<Project | null> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/projects/${slug}.json`, {
-      cache: 'no-store'
-    });
-    if (!response.ok) {
-      return null;
-    }
+    const response = await fetchWithRetry(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/projects/${slug}.json`);
     const project = await response.json();
     return validateProject(project);
   } catch (error) {
@@ -34,12 +42,7 @@ export async function loadProjectBySlug(slug: string): Promise<Project | null> {
 
 export async function loadKnowledgeEntries(filters?: ContentFilters): Promise<KnowledgeEntry[]> {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/knowledge/index.json`, {
-      cache: 'no-store'
-    });
-    if (!response.ok) {
-      throw new Error(`Failed to load knowledge entries: ${response.statusText}`);
-    }
+    const response = await fetchWithRetry(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/knowledge/index.json`);
     let entries = await response.json();
 
     entries = entries.map(validateKnowledgeEntry);
@@ -51,7 +54,28 @@ export async function loadKnowledgeEntries(filters?: ContentFilters): Promise<Kn
     return entries;
   } catch (error) {
     console.error('Error loading knowledge entries:', error);
-    return [];
+    throw new Error('Failed to load knowledge entries. Check network connection and try again.');
+  }
+}
+
+export async function loadKnowledgeEntryById(id: string): Promise<KnowledgeEntry | null> {
+  try {
+    const response = await fetchWithRetry(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/knowledge/${id}.json`);
+    const entry = await response.json();
+    return validateKnowledgeEntry(entry);
+  } catch (error) {
+    // Fallback to index.json
+    try {
+      console.warn(`Failed to load ${id}.json, falling back to index.json...`);
+      const indexResponse = await fetchWithRetry(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/content/knowledge/index.json`);
+      const entries = await indexResponse.json();
+      const validatedEntries = entries.map(validateKnowledgeEntry);
+      const matchingEntry = validatedEntries.find((entry: KnowledgeEntry) => entry.id === id);
+      return matchingEntry || null;
+    } catch (fallbackError) {
+      console.error(`Error loading knowledge entry ${id} from index:`, fallbackError);
+      return null;
+    }
   }
 }
 
@@ -114,14 +138,14 @@ function validateKnowledgeEntry(entry: Record<string, unknown>): KnowledgeEntry 
   if (!entry.category || typeof entry.category !== 'string') {
     throw new Error('KnowledgeEntry validation failed: Invalid category');
   }
-  if (entry.tags && !Array.isArray(entry.tags)) {
-    throw new Error('KnowledgeEntry validation failed: Invalid tags');
+  if (!Array.isArray(entry.tags) || entry.tags.some(t => typeof t !== 'string')) {
+    throw new Error('KnowledgeEntry validation failed: Invalid or missing tags');
   }
 
   return entry as unknown as KnowledgeEntry;
 }
 
-function filterKnowledgeEntries(entries: KnowledgeEntry[], filters: ContentFilters): KnowledgeEntry[] {
+export function filterKnowledgeEntries(entries: KnowledgeEntry[], filters: ContentFilters): KnowledgeEntry[] {
   let filtered = [...entries];
 
   if (filters.category) {

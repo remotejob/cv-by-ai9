@@ -1,0 +1,7 @@
+{
+  "id": "spinnaker",
+  "title": "Spinnaker",
+  "summary": "Multi-cloud continuous delivery platform for releasing software changes with high velocity and confidence across multiple cloud providers.",
+  "category": "CI/CD",
+  "tags": ["continuous-delivery", "multi-cloud", "deployment", "canary", "blue-green"]
+}

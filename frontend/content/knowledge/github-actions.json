@@ -1,0 +1,7 @@
+{
+  "id": "github-actions",
+  "title": "GitHub Actions",
+  "summary": "GitHub's integrated CI/CD platform for automating workflows, testing, and deployment directly from repositories.",
+  "category": "CI/CD",
+  "tags": ["github", "ci-cd", "workflows", "automation", "yaml"]
+}

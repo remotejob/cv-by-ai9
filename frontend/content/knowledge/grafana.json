@@ -1,0 +1,7 @@
+{
+  "id": "grafana",
+  "title": "Grafana",
+  "summary": "Multi-platform analytics and interactive visualization platform for creating dashboards and graphs from time series data.",
+  "category": "Monitoring",
+  "tags": ["visualization", "dashboards", "monitoring", "analytics", "metrics"]
+}

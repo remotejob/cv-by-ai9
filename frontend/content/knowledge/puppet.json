@@ -1,0 +1,7 @@
+{
+  "id": "puppet",
+  "title": "Puppet",
+  "summary": "Declarative configuration management tool for automating infrastructure provisioning and management across diverse environments.",
+  "category": "Infrastructure as Code",
+  "tags": ["configuration-management", "declarative", "manifests", "automation", "compliance"]
+}

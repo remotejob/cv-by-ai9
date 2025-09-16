@@ -1,0 +1,13 @@
+{
+  "id": "terraform-aws-modules",
+  "title": "Terraform AWS Module Collection",
+  "summary": "Reusable Terraform modules for AWS infrastructure deployment. Covers networking, computing, storage, and security components.",
+  "content": {
+    "description": "# Terraform AWS Module Collection\n\nA comprehensive collection of reusable Terraform modules for AWS infrastructure deployment.\n\n## Features\n\n- Modular infrastructure components\n- Best-practice implementations\n- Version controlled modules\n- Documentation and examples\n- CI/CD pipeline integration\n\n## Technical Details\n\n- VPC and networking modules\n- EC2 and container modules\n- Storage and database modules\n- Security and IAM modules\n- Service configuration modules\n\n## Implementation\n\nThe collection provides standardized, tested modules for common AWS infrastructure patterns, following infrastructure-as-code best practices and AWS Well-Architected Framework guidelines.",
+    "images": []
+  },
+  "tags": ["terraform", "aws", "iac", "modules", "cloud"],
+  "featured": false,
+  "slug": "terraform-aws-modules",
+  "externalUrl": "https://gitlab.com/devops-labs/terraform-aws-modules"
+}

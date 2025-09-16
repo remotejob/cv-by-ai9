@@ -1,0 +1,7 @@
+{
+  "id": "trivy",
+  "title": "Trivy",
+  "summary": "Comprehensive security scanner for vulnerabilities in container images, file systems, and git repositories.",
+  "category": "Security",
+  "tags": ["security", "vulnerability-scanning", "containers", "compliance", "open-source"]
+}

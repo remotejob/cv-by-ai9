@@ -1,0 +1,7 @@
+{
+  "id": "pulumi",
+  "title": "Pulumi",
+  "summary": "Modern infrastructure as code platform using familiar programming languages to define and manage cloud resources.",
+  "category": "Infrastructure as Code",
+  "tags": ["iac", "programming", "multi-cloud", "state", "typescript"]
+}

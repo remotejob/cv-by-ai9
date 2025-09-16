@@ -1,0 +1,65 @@
+[
+  {
+    "id": "kubernetes-cluster-automation",
+    "title": "Kubernetes Cluster Automation Platform",
+    "summary": "Enterprise-grade Kubernetes cluster automation with Terraform and Helm. Includes auto-scaling, monitoring, and GitLab CI/CD integration.",
+    "tags": ["kubernetes", "terraform", "helm", "automation", "gitlab-ci", "infrastructure"],
+    "featured": true,
+    "slug": "kubernetes-cluster-automation",
+    "externalUrl": "https://gitlab.com/devops-labs/kubernetes-cluster-automation"
+  },
+  {
+    "id": "aws-multi-region-infrastructure",
+    "title": "AWS Multi-Region Infrastructure Framework",
+    "summary": "Highly available AWS infrastructure deployed across multiple regions using Terraform. Features automated disaster recovery and compliance.",
+    "tags": ["aws", "terraform", "multi-region", "high-availability", "infrastructure"],
+    "featured": true,
+    "slug": "aws-multi-region-infrastructure",
+    "externalUrl": "https://gitlab.com/devops-labs/aws-multi-region-infrastructure"
+  },
+  {
+    "id": "devsecops-pipeline-framework",
+    "title": "DevSecOps Pipeline Framework",
+    "summary": "Comprehensive DevSecOps pipeline integrating security scanning, compliance checks, and vulnerability management in CI/CD process.",
+    "tags": ["devsecops", "security", "cicd", "compliance", "automation", "gitlab-ci"],
+    "featured": true,
+    "slug": "devsecops-pipeline-framework",
+    "externalUrl": "https://gitlab.com/devops-labs/devsecops-pipeline-framework"
+  },
+  {
+    "id": "eks-gitops-platform",
+    "title": "EKS GitOps Management Platform",
+    "summary": "Complete GitOps platform for EKS clusters using ArgoCD and Flux. Includes automated deployments and configuration management.",
+    "tags": ["kubernetes", "aws", "gitops", "argocd", "eks", "automation"],
+    "featured": false,
+    "slug": "eks-gitops-platform",
+    "externalUrl": "https://gitlab.com/devops-labs/eks-gitops-platform"
+  },
+  {
+    "id": "multi-cloud-monitoring",
+    "title": "Multi-Cloud Monitoring Solution",
+    "summary": "Unified monitoring solution for AWS, GCP, and Azure using Prometheus, Grafana, and custom exporters.",
+    "tags": ["monitoring", "multi-cloud", "prometheus", "grafana", "observability"],
+    "featured": false,
+    "slug": "multi-cloud-monitoring",
+    "externalUrl": "https://gitlab.com/devops-labs/multi-cloud-monitoring"
+  },
+  {
+    "id": "service-mesh-automation",
+    "title": "Service Mesh Automation Framework",
+    "summary": "Automated service mesh deployment and management using Istio. Includes traffic management, security, and observability features.",
+    "tags": ["istio", "kubernetes", "service-mesh", "automation", "networking"],
+    "featured": false,
+    "slug": "service-mesh-automation",
+    "externalUrl": "https://gitlab.com/devops-labs/service-mesh-automation"
+  },
+  {
+    "id": "serverless-deployment-platform",
+    "title": "Serverless Deployment Platform",
+    "summary": "Comprehensive platform for managing serverless applications across AWS Lambda, Azure Functions, and GCP Cloud Functions.",
+    "tags": ["serverless", "aws-lambda", "azure-functions", "multi-cloud", "automation"],
+    "featured": false,
+    "slug": "serverless-deployment-platform",
+    "externalUrl": "https://gitlab.com/devops-labs/serverless-deployment-platform"
+  }
+]

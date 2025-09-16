@@ -1,0 +1,7 @@
+{
+  "id": "helm",
+  "title": "Helm",
+  "summary": "The package manager for Kubernetes that helps you define, install, and upgrade even the most complex applications.",
+  "category": "Containerization",
+  "tags": ["kubernetes", "package-manager", "charts", "deployment", "configuration"]
+}

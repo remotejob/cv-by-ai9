@@ -1,0 +1,7 @@
+{
+  "id": "nomad",
+  "title": "HashiCorp Nomad",
+  "summary": "Flexible workload orchestrator for deploying and managing applications across on-premise and cloud environments at scale.",
+  "category": "Infrastructure as Code",
+  "tags": ["orchestration", "workload-management", "multi-cloud", "hashicorp", "scheduling"]
+}

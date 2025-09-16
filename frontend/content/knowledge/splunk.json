@@ -1,0 +1,7 @@
+{
+  "id": "splunk",
+  "title": "Splunk",
+  "summary": "Platform for searching, monitoring, and analyzing machine-generated data for operational intelligence and security insights.",
+  "category": "Monitoring",
+  "tags": ["data-analytics", "log-analysis", "security", "operational-intelligence", "search"]
+}

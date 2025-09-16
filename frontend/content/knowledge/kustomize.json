@@ -1,0 +1,7 @@
+{
+  "id": "kustomize",
+  "title": "Kustomize",
+  "summary": "Kubernetes-native configuration management tool for customizing application configurations without modifying original YAML files.",
+  "category": "Infrastructure as Code",
+  "tags": ["kubernetes", "configuration", "yaml", "templating", "overlay"]
+}

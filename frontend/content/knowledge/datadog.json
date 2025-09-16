@@ -1,0 +1,7 @@
+{
+  "id": "datadog",
+  "title": "Datadog",
+  "summary": "Cloud-scale monitoring and analytics platform providing full-stack observability for applications, infrastructure, and logs.",
+  "category": "Monitoring",
+  "tags": ["monitoring", "apm", "observability", "cloud", "analytics"]
+}
