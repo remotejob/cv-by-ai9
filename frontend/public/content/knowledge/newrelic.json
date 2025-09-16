@@ -1,0 +1,7 @@
+{
+  "id": "newrelic",
+  "title": "New Relic",
+  "summary": "Full-stack observability platform providing application performance monitoring, infrastructure monitoring, and digital intelligence.",
+  "category": "Monitoring",
+  "tags": ["apm", "monitoring", "observability", "performance", "analytics"]
+}

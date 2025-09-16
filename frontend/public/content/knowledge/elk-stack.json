@@ -1,0 +1,7 @@
+{
+  "id": "elk-stack",
+  "title": "ELK Stack",
+  "summary": "Elasticsearch, Logstash, and Kibana stack for centralized logging, log analysis, and visualization of application and infrastructure logs.",
+  "category": "Monitoring",
+  "tags": ["logging", "elasticsearch", "kibana", "logstash", "search"]
+}

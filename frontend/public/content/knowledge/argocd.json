@@ -1,0 +1,7 @@
+{
+  "id": "argocd",
+  "title": "Argo CD",
+  "summary": "Declarative GitOps continuous delivery tool for Kubernetes applications with automated synchronization and rollback capabilities.",
+  "category": "CI/CD",
+  "tags": ["gitops", "kubernetes", "continuous-delivery", "declarative", "sync"]
+}

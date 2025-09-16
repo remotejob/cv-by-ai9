@@ -1,4 +1,4 @@
-import { loadProjects, paginateProjects } from '@/lib/content';
+import { loadProjectsServer, paginateProjectsServer } from '@/lib/content-server';
 import { generateMetadata } from '@/lib/metadata';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,11 +13,11 @@ export const metadata = generateMetadata({
 });
 
 export default async function ProjectsPage() {
-  const projects = await loadProjects();
+  const projects = await loadProjectsServer();
   const currentPage = 1;
   const itemsPerPage = 12;
 
-  const paginatedResult = paginateProjects(projects, {
+  const paginatedResult = paginateProjectsServer(projects, {
     page: currentPage,
     limit: itemsPerPage
   });

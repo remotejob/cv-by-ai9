@@ -1,0 +1,7 @@
+{
+  "id": "prometheus",
+  "title": "Prometheus",
+  "summary": "Open-source monitoring and alerting toolkit with time-series database for collecting and querying metrics from applications and infrastructure.",
+  "category": "Monitoring",
+  "tags": ["monitoring", "metrics", "time-series", "alerting", "scraping"]
+}

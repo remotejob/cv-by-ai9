@@ -1,0 +1,7 @@
+{
+  "id": "chef",
+  "title": "Chef",
+  "summary": "Configuration management and automation platform for defining infrastructure as code using Ruby-based recipes and cookbooks.",
+  "category": "Infrastructure as Code",
+  "tags": ["configuration-management", "ruby", "cookbooks", "recipes", "automation"]
+}

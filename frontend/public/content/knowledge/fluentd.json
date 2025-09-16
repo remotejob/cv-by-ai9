@@ -1,0 +1,7 @@
+{
+  "id": "fluentd",
+  "title": "Fluentd",
+  "summary": "Open-source data collector for unified logging layer, enabling log collection, processing, and forwarding across distributed systems.",
+  "category": "Monitoring",
+  "tags": ["logging", "data-collection", "log-forwarding", "unified-logging", "ruby"]
+}

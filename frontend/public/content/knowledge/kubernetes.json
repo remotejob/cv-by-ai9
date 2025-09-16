@@ -1,0 +1,35 @@
+{
+  "id": "kubernetes",
+  "title": "Kubernetes",
+  "summary": "Production-grade container orchestration platform for automating deployment, scaling, and management of containerized applications.",
+  "category": "Containerization",
+  "tags": ["orchestration", "containers", "microservices", "devops", "cloud-native"],
+  "description": "Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. Originally developed by Google and now maintained by the Cloud Native Computing Foundation, Kubernetes has become the de facto standard for container orchestration in enterprise environments.\n\nCore concepts include Pods (smallest deployable units), Services (networking abstraction), Deployments (declarative application management), ConfigMaps and Secrets (configuration management), and Namespaces (resource isolation). The platform provides powerful features like horizontal pod autoscaling, rolling deployments, service discovery, load balancing, and self-healing capabilities.\n\nKubernetes excels in managing complex microservices architectures, providing robust networking, persistent storage solutions, and extensive ecosystem integration. It supports multi-cloud and hybrid cloud deployments, making it ideal for organizations seeking vendor independence and scalable infrastructure solutions.",
+  "experienceLevel": "advanced",
+  "yearsOfExperience": 4,
+  "relatedProjects": ["kubernetes-cluster-automation", "prometheus-grafana-monitoring", "devsecops-pipeline-framework"],
+  "certifications": ["Certified Kubernetes Administrator (CKA)", "Certified Kubernetes Application Developer (CKAD)", "Certified Kubernetes Security Specialist (CKS)"],
+  "learningResources": [
+    {
+      "title": "Kubernetes Official Documentation",
+      "url": "https://kubernetes.io/docs/",
+      "type": "documentation"
+    },
+    {
+      "title": "Kubernetes The Hard Way",
+      "url": "https://github.com/kelseyhightower/kubernetes-the-hard-way",
+      "type": "tutorial"
+    },
+    {
+      "title": "CKA/CKAD Exam Prep Course",
+      "url": "https://www.cncf.io/certification/training/",
+      "type": "certification"
+    },
+    {
+      "title": "Kubernetes Best Practices",
+      "url": "https://kubernetes.io/docs/concepts/configuration/overview/",
+      "type": "documentation"
+    }
+  ],
+  "lastUpdated": "2025-09-16"
+}

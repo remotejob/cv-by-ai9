@@ -1,59 +1,57 @@
-import { loadKnowledgeEntries } from '@/lib/content-static';
-import { KnowledgeEntry } from '@/types/content';
+import { loadKnowledgeEntriesServer } from '@/lib/content-server';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { KnowledgeFilters } from '@/components/knowledge-filters';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
-interface Props {
-  searchParams?: {
-    category?: string;
-    search?: string;
-    tags?: string;
-  }
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Knowledge & Skills',
+  description: 'Explore my technical expertise across DevOps, cloud infrastructure, and automation technologies'
+};
+
+interface KnowledgePageProps {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function KnowledgePage({ searchParams }: Props) {
+export default async function KnowledgePage({
+  searchParams,
+}: KnowledgePageProps) {
   // Load all entries at build time
-  const allEntries = await loadKnowledgeEntries();
+  const allEntries = await loadKnowledgeEntriesServer();
 
   // Get unique categories for filter options
   const categories = Array.from(new Set(allEntries.map(entry => entry.category)));
-  
+
   // Get all unique tags
   const tags = Array.from(new Set(allEntries.flatMap(entry => entry.tags)));
 
-  // Filter entries based on URL parameters
-  const selectedCategory = searchParams?.category || '';
-  const selectedTags = searchParams?.tags?.split(',').filter(Boolean) || [];
-  const searchTerm = searchParams?.search || '';
+  // For static export, default to empty filters during build
+  let selectedCategory = '';
+  let selectedTags: string[] = [];
+  let searchTerm = '';
+
+  try {
+    const resolvedSearchParams = await searchParams;
+    selectedCategory = typeof resolvedSearchParams?.category === 'string' ? resolvedSearchParams.category : '';
+    selectedTags = typeof resolvedSearchParams?.tags === 'string' ? resolvedSearchParams.tags.split(',').filter(Boolean) : [];
+    searchTerm = typeof resolvedSearchParams?.search === 'string' ? resolvedSearchParams.search : '';
+  } catch {
+    // During static generation, searchParams may not be available, use defaults
+  }
 
   const filteredEntries = allEntries.filter(entry => {
     const matchesCategory = !selectedCategory || entry.category === selectedCategory;
-    const matchesTags = selectedTags.length === 0 || selectedTags.every(tag => entry.tags.includes(tag));
-    const matchesSearch = !searchTerm || 
+    const matchesTags = selectedTags.length === 0 || selectedTags.every((tag: string) => entry.tags.includes(tag));
+    const matchesSearch = !searchTerm ||
       entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       entry.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      entry.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    
+      entry.tags.some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+
     return matchesCategory && matchesTags && matchesSearch;
   });
-
-  // Helper function to update search params
-  const createSearchParams = (updates: Record<string, string | undefined>) => {
-    const params = new URLSearchParams();
-    const current = { 
-      category: selectedCategory, 
-      tags: searchParams?.tags,
-      search: searchTerm,
-      ...updates 
-    };
-    
-    Object.entries(current).forEach(([key, value]) => {
-      if (value) params.set(key, value);
-    });
-    
-    return params.toString();
-  };
 
   return (
     <main className="min-h-screen pt-20" id="main-content">
@@ -69,88 +67,25 @@ export default async function KnowledgePage({ searchParams }: Props) {
           </div>
 
           {/* Filters */}
-          <div className="mb-8 space-y-4" role="region" aria-label="Knowledge filters">
-            {/* Search */}
-            <form action="/knowledge" className="relative">
-              <label htmlFor="knowledge-search" className="sr-only">
-                Search skills, technologies, or topics
-              </label>
-              <input
-                id="knowledge-search"
-                type="text"
-                name="search"
-                placeholder="Search skills, technologies, or topics..."
-                defaultValue={searchTerm}
-                className="w-full px-4 py-2 bg-card-bg border border-gray-700 rounded-lg text-white placeholder-gray-5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900"
-                aria-describedby="search-help"
-              />
-              <div id="search-help" className="sr-only">
-                Type to filter knowledge entries by title, summary, category, or tags
-              </div>
-            </form>
-
-            {/* Category Filter */}
-            <div>
-              <label htmlFor="category-filter" className="block text-white mb-2">
-                Category
-              </label>
-              <select
-                id="category-filter"
-                name="category"
-                defaultValue={selectedCategory}
-                onChange={(e) => {
-                  const params = createSearchParams({ category: e.target.value });
-                  window.location.href = `/knowledge${params ? '?' + params : ''}`;
-                }}
-                className="w-full px-4 py-2 bg-card-bg border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900"
-                aria-describedby="category-help"
-              >
-                <option value="">All Categories</option>
-                {categories.map(category => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-              <div id="category-help" className="sr-only">
-                Filter knowledge entries by category
-              </div>
-            </div>
-
-            {/* Tag Filter */}
-            <div>
-              <label className="block text-white mb-2">Tags</label>
-              <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by tags">
-                {tags.slice(0, 12).map(tag => (
-                  <a
-                    key={tag}
-                    href={`/knowledge?${createSearchParams({
-                      tags: selectedTags.includes(tag)
-                        ? selectedTags.filter(t => t !== tag).join(',')
-                        : [...selectedTags, tag].join(',')
-                    })}`}
-                    className={`px-3 py-1 rounded-full text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-900 ${
-                      selectedTags.includes(tag)
-                        ? 'bg-accent text-black'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                    }`}
-                  >
-                    {tag}
-                  </a>
+          <Suspense fallback={
+            <div className="mb-8 space-y-4">
+              <div className="h-12 bg-card-bg border border-gray-700 rounded-lg animate-pulse"></div>
+              <div className="h-12 bg-card-bg border border-gray-700 rounded-lg animate-pulse"></div>
+              <div className="flex flex-wrap gap-2">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <div key={i} className="h-8 w-16 bg-gray-700 rounded-full animate-pulse"></div>
                 ))}
               </div>
             </div>
-
-            {/* Clear Filters */}
-            {(selectedCategory || selectedTags.length > 0 || searchTerm) && (
-              <div>
-                <a
-                  href="/knowledge"
-                  className="inline-block px-4 py-2 border border-gray-700 rounded-lg text-white hover:bg-gray-700 transition-colors"
-                >
-                  Clear All Filters
-                </a>
-              </div>
-            )}
-          </div>
+          }>
+            <KnowledgeFilters
+              categories={categories}
+              tags={tags}
+              selectedCategory={selectedCategory}
+              selectedTags={selectedTags}
+              searchTerm={searchTerm}
+            />
+          </Suspense>
 
           {/* Results */}
           <div className="mb-4 text-gray-5 text-body" role="status">
@@ -211,12 +146,12 @@ export default async function KnowledgePage({ searchParams }: Props) {
           ) : (
             <div className="text-center py-12">
               <p className="text-gray-5">No entries found matching your criteria.</p>
-              <a
+              <Link
                 href="/knowledge"
                 className="inline-block mt-4 px-4 py-2 border border-gray-700 rounded-lg text-white hover:bg-gray-700 transition-colors"
               >
                 Clear Filters
-              </a>
+              </Link>
             </div>
           )}
         </div>

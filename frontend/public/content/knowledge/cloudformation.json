@@ -1,0 +1,7 @@
+{
+  "id": "cloudformation",
+  "title": "AWS CloudFormation",
+  "summary": "AWS service for defining cloud infrastructure using templates, enabling version control and automated provisioning of resources.",
+  "category": "Infrastructure as Code",
+  "tags": ["aws", "templates", "infrastructure", "provisioning", "stack-management"]
+}

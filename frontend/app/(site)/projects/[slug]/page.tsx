@@ -1,4 +1,4 @@
-import { loadProjectBySlug } from '@/lib/content';
+import { loadProjectBySlugServer, loadProjectsServer } from '@/lib/content-server';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
@@ -10,15 +10,15 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
-  // Return available project slugs
-  return [
-    { slug: 'sample-project' }
-  ];
+  const projects = await loadProjectsServer();
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = await loadProjectBySlug(slug);
+  const project = await loadProjectBySlugServer(slug);
 
   if (!project) {
     notFound();

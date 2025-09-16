@@ -1,0 +1,7 @@
+{
+  "id": "consul",
+  "title": "HashiCorp Consul",
+  "summary": "Service mesh solution providing service discovery, configuration, and segmentation functionality for distributed applications.",
+  "category": "Security",
+  "tags": ["service-discovery", "service-mesh", "configuration", "networking", "hashicorp"]
+}

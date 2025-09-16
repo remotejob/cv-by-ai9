@@ -1,4 +1,4 @@
-import { loadProjects, getFeaturedProjects } from '@/lib/content';
+import { loadProjectsServer, getFeaturedProjectsServer } from '@/lib/content-server';
 import { generateMetadata } from '@/lib/metadata';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,8 +11,8 @@ export const metadata = generateMetadata({
 });
 
 export default async function HomePage() {
-  const projects = await loadProjects();
-  const featuredProjects = getFeaturedProjects(projects);
+  const projects = await loadProjectsServer();
+  const featuredProjects = getFeaturedProjectsServer(projects);
 
   return (
     <main className="min-h-screen pt-20" id="main-content">

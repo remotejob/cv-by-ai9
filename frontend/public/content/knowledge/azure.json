@@ -1,0 +1,7 @@
+{
+  "id": "azure",
+  "title": "Microsoft Azure",
+  "summary": "Microsoft's cloud computing platform providing a wide range of cloud services including compute, analytics, storage, and networking.",
+  "category": "Cloud Platforms",
+  "tags": ["cloud", "microsoft", "infrastructure", "enterprise", "hybrid"]
+}

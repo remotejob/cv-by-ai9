@@ -1,0 +1,7 @@
+{
+  "id": "cdk",
+  "title": "AWS CDK",
+  "summary": "AWS Cloud Development Kit for defining cloud infrastructure using familiar programming languages and object-oriented concepts.",
+  "category": "Infrastructure as Code",
+  "tags": ["aws", "cdk", "typescript", "infrastructure", "constructs"]
+}

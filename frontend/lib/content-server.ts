@@ -96,3 +96,35 @@ export async function loadProjectBySlugServer(slug: string): Promise<Project | n
     return null;
   }
 }
+
+export async function loadProjectsServer(): Promise<Project[]> {
+  try {
+    const filePath = join(process.cwd(), 'content', 'projects', 'index.json');
+    const fileContent = readFileSync(filePath, 'utf8');
+    const projects = JSON.parse(fileContent);
+    return projects.map(validateProject);
+  } catch (error) {
+    console.error('Error loading projects:', error);
+    return [];
+  }
+}
+
+export function getFeaturedProjectsServer(projects: Project[]): Project[] {
+  return projects.filter(project => project.featured).slice(0, 3);
+}
+
+export function paginateProjectsServer(projects: Project[], options: { page: number; limit: number }) {
+  const { page, limit } = options;
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+
+  const paginatedProjects = projects.slice(startIndex, endIndex);
+
+  return {
+    data: paginatedProjects,
+    total: projects.length,
+    page,
+    limit,
+    totalPages: Math.ceil(projects.length / limit)
+  };
+}

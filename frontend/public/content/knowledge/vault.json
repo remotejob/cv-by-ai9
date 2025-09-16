@@ -1,0 +1,7 @@
+{
+  "id": "vault",
+  "title": "HashiCorp Vault",
+  "summary": "Secrets management tool for securely storing and accessing tokens, passwords, certificates, and encryption keys.",
+  "category": "Security",
+  "tags": ["secrets", "encryption", "authentication", "security", "hashicorp"]
+}

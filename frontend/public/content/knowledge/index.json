@@ -1,0 +1,296 @@
+[
+  {
+    "id": "docker",
+    "title": "Docker",
+    "summary": "Containerization platform for deploying applications in isolated environments",
+    "category": "Containerization",
+    "tags": ["containers", "orchestration", "devops"]
+  },
+  {
+    "id": "kubernetes",
+    "title": "Kubernetes",
+    "summary": "Production-grade container orchestration platform for automating deployment, scaling, and management of containerized applications.",
+    "category": "Containerization",
+    "tags": ["orchestration", "containers", "microservices", "devops", "cloud-native"]
+  },
+  {
+    "id": "helm",
+    "title": "Helm",
+    "summary": "The package manager for Kubernetes that helps you define, install, and upgrade even the most complex applications.",
+    "category": "Containerization",
+    "tags": ["kubernetes", "package-manager", "charts", "deployment", "configuration"]
+  },
+  {
+    "id": "podman",
+    "title": "Podman",
+    "summary": "Daemonless container engine for developing, managing, and running OCI containers with enhanced security and rootless operation.",
+    "category": "Containerization",
+    "tags": ["containers", "rootless", "docker-alternative", "security", "pods"]
+  },
+  {
+    "id": "containerd",
+    "title": "containerd",
+    "summary": "Industry-standard container runtime that manages the complete container lifecycle for both Linux and Windows containers.",
+    "category": "Containerization",
+    "tags": ["runtime", "containers", "cri", "kubernetes", "oci"]
+  },
+  {
+    "id": "aws",
+    "title": "Amazon Web Services",
+    "summary": "Comprehensive cloud computing platform offering scalable infrastructure, storage, databases, and hundreds of other services.",
+    "category": "Cloud Platforms",
+    "tags": ["cloud", "infrastructure", "aws", "scalability", "devops"]
+  },
+  {
+    "id": "azure",
+    "title": "Microsoft Azure",
+    "summary": "Microsoft's cloud computing platform providing a wide range of cloud services including compute, analytics, storage, and networking.",
+    "category": "Cloud Platforms",
+    "tags": ["cloud", "microsoft", "infrastructure", "enterprise", "hybrid"]
+  },
+  {
+    "id": "gcp",
+    "title": "Google Cloud Platform",
+    "summary": "Google's cloud computing services offering computing, data storage, data analytics, and machine learning capabilities.",
+    "category": "Cloud Platforms",
+    "tags": ["cloud", "google", "machine-learning", "big-data", "kubernetes"]
+  },
+  {
+    "id": "digitalocean",
+    "title": "DigitalOcean",
+    "summary": "Cloud infrastructure provider focused on simplicity, offering droplets, managed databases, and Kubernetes services for developers.",
+    "category": "Cloud Platforms",
+    "tags": ["cloud", "droplets", "simple", "developer-friendly", "kubernetes"]
+  },
+  {
+    "id": "jenkins",
+    "title": "Jenkins",
+    "summary": "Open-source automation server for building, testing, and deploying software with extensive plugin ecosystem.",
+    "category": "CI/CD",
+    "tags": ["automation", "ci-cd", "build", "deployment", "plugins"]
+  },
+  {
+    "id": "gitlab-ci",
+    "title": "GitLab CI/CD",
+    "summary": "Integrated continuous integration and deployment platform built into GitLab for automated testing and deployment pipelines.",
+    "category": "CI/CD",
+    "tags": ["gitlab", "ci-cd", "pipelines", "automation", "git"]
+  },
+  {
+    "id": "github-actions",
+    "title": "GitHub Actions",
+    "summary": "GitHub's integrated CI/CD platform for automating workflows, testing, and deployment directly from repositories.",
+    "category": "CI/CD",
+    "tags": ["github", "ci-cd", "workflows", "automation", "yaml"]
+  },
+  {
+    "id": "argocd",
+    "title": "Argo CD",
+    "summary": "Declarative GitOps continuous delivery tool for Kubernetes applications with automated synchronization and rollback capabilities.",
+    "category": "CI/CD",
+    "tags": ["gitops", "kubernetes", "continuous-delivery", "declarative", "sync"]
+  },
+  {
+    "id": "circleci",
+    "title": "CircleCI",
+    "summary": "Cloud-based continuous integration and delivery platform with powerful workflow automation and parallelization capabilities.",
+    "category": "CI/CD",
+    "tags": ["ci-cd", "cloud", "workflows", "parallelization", "automation"]
+  },
+  {
+    "id": "spinnaker",
+    "title": "Spinnaker",
+    "summary": "Multi-cloud continuous delivery platform for releasing software changes with high velocity and confidence across multiple cloud providers.",
+    "category": "CI/CD",
+    "tags": ["continuous-delivery", "multi-cloud", "deployment", "canary", "blue-green"]
+  },
+  {
+    "id": "ansible",
+    "title": "Ansible",
+    "summary": "Agentless automation platform for configuration management, application deployment, and infrastructure orchestration.",
+    "category": "Infrastructure as Code",
+    "tags": ["automation", "configuration", "playbooks", "agentless", "yaml"]
+  },
+  {
+    "id": "terraform",
+    "title": "Terraform",
+    "summary": "Infrastructure as Code tool for building, changing, and versioning infrastructure safely and efficiently across multiple providers.",
+    "category": "Infrastructure as Code",
+    "tags": ["iac", "infrastructure", "provisioning", "multi-cloud", "state-management"]
+  },
+  {
+    "id": "cloudformation",
+    "title": "AWS CloudFormation",
+    "summary": "AWS service for defining cloud infrastructure using templates, enabling version control and automated provisioning of resources.",
+    "category": "Infrastructure as Code",
+    "tags": ["aws", "templates", "infrastructure", "provisioning", "stack-management"]
+  },
+  {
+    "id": "pulumi",
+    "title": "Pulumi",
+    "summary": "Modern infrastructure as code platform using familiar programming languages to define and manage cloud resources.",
+    "category": "Infrastructure as Code",
+    "tags": ["iac", "programming", "multi-cloud", "state", "typescript"]
+  },
+  {
+    "id": "cdk",
+    "title": "AWS CDK",
+    "summary": "AWS Cloud Development Kit for defining cloud infrastructure using familiar programming languages and object-oriented concepts.",
+    "category": "Infrastructure as Code",
+    "tags": ["aws", "cdk", "typescript", "infrastructure", "constructs"]
+  },
+  {
+    "id": "chef",
+    "title": "Chef",
+    "summary": "Configuration management and automation platform for defining infrastructure as code using Ruby-based recipes and cookbooks.",
+    "category": "Infrastructure as Code",
+    "tags": ["configuration-management", "ruby", "cookbooks", "recipes", "automation"]
+  },
+  {
+    "id": "puppet",
+    "title": "Puppet",
+    "summary": "Declarative configuration management tool for automating infrastructure provisioning and management across diverse environments.",
+    "category": "Infrastructure as Code",
+    "tags": ["configuration-management", "declarative", "manifests", "automation", "compliance"]
+  },
+  {
+    "id": "nomad",
+    "title": "HashiCorp Nomad",
+    "summary": "Flexible workload orchestrator for deploying and managing applications across on-premise and cloud environments at scale.",
+    "category": "Infrastructure as Code",
+    "tags": ["orchestration", "workload-management", "multi-cloud", "hashicorp", "scheduling"]
+  },
+  {
+    "id": "packer",
+    "title": "HashiCorp Packer",
+    "summary": "Tool for creating identical machine images for multiple platforms from a single source configuration, supporting immutable infrastructure.",
+    "category": "Infrastructure as Code",
+    "tags": ["image-building", "immutable-infrastructure", "multi-platform", "hashicorp", "automation"]
+  },
+  {
+    "id": "vagrant",
+    "title": "HashiCorp Vagrant",
+    "summary": "Tool for building and managing virtual machine environments in a single workflow, enabling consistent development environments.",
+    "category": "Infrastructure as Code",
+    "tags": ["virtualization", "development-environment", "provisioning", "hashicorp", "automation"]
+  },
+  {
+    "id": "kustomize",
+    "title": "Kustomize",
+    "summary": "Kubernetes-native configuration management tool for customizing application configurations without modifying original YAML files.",
+    "category": "Infrastructure as Code",
+    "tags": ["kubernetes", "configuration", "yaml", "templating", "overlay"]
+  },
+  {
+    "id": "prometheus",
+    "title": "Prometheus",
+    "summary": "Open-source monitoring and alerting toolkit with time-series database for collecting and querying metrics from applications and infrastructure.",
+    "category": "Monitoring",
+    "tags": ["monitoring", "metrics", "time-series", "alerting", "scraping"]
+  },
+  {
+    "id": "grafana",
+    "title": "Grafana",
+    "summary": "Multi-platform analytics and interactive visualization platform for creating dashboards and graphs from time series data.",
+    "category": "Monitoring",
+    "tags": ["visualization", "dashboards", "monitoring", "analytics", "metrics"]
+  },
+  {
+    "id": "elk-stack",
+    "title": "ELK Stack",
+    "summary": "Elasticsearch, Logstash, and Kibana stack for centralized logging, log analysis, and visualization of application and infrastructure logs.",
+    "category": "Monitoring",
+    "tags": ["logging", "elasticsearch", "kibana", "logstash", "search"]
+  },
+  {
+    "id": "jaeger",
+    "title": "Jaeger",
+    "summary": "Open-source distributed tracing platform for monitoring and troubleshooting microservices-based architectures.",
+    "category": "Monitoring",
+    "tags": ["tracing", "microservices", "observability", "performance", "distributed"]
+  },
+  {
+    "id": "datadog",
+    "title": "Datadog",
+    "summary": "Cloud-scale monitoring and analytics platform providing full-stack observability for applications, infrastructure, and logs.",
+    "category": "Monitoring",
+    "tags": ["monitoring", "apm", "observability", "cloud", "analytics"]
+  },
+  {
+    "id": "newrelic",
+    "title": "New Relic",
+    "summary": "Full-stack observability platform providing application performance monitoring, infrastructure monitoring, and digital intelligence.",
+    "category": "Monitoring",
+    "tags": ["apm", "monitoring", "observability", "performance", "analytics"]
+  },
+  {
+    "id": "splunk",
+    "title": "Splunk",
+    "summary": "Platform for searching, monitoring, and analyzing machine-generated data for operational intelligence and security insights.",
+    "category": "Monitoring",
+    "tags": ["data-analytics", "log-analysis", "security", "operational-intelligence", "search"]
+  },
+  {
+    "id": "fluentd",
+    "title": "Fluentd",
+    "summary": "Open-source data collector for unified logging layer, enabling log collection, processing, and forwarding across distributed systems.",
+    "category": "Monitoring",
+    "tags": ["logging", "data-collection", "log-forwarding", "unified-logging", "ruby"]
+  },
+  {
+    "id": "vault",
+    "title": "HashiCorp Vault",
+    "summary": "Secrets management tool for securely storing and accessing tokens, passwords, certificates, and encryption keys.",
+    "category": "Security",
+    "tags": ["secrets", "encryption", "authentication", "security", "hashicorp"]
+  },
+  {
+    "id": "trivy",
+    "title": "Trivy",
+    "summary": "Comprehensive security scanner for vulnerabilities in container images, file systems, and git repositories.",
+    "category": "Security",
+    "tags": ["security", "vulnerability-scanning", "containers", "compliance", "open-source"]
+  },
+  {
+    "id": "falco",
+    "title": "Falco",
+    "summary": "Runtime security monitoring tool for detecting anomalous behavior and security threats in containerized environments.",
+    "category": "Security",
+    "tags": ["runtime-security", "monitoring", "kubernetes", "threat-detection", "cncf"]
+  },
+  {
+    "id": "opa",
+    "title": "Open Policy Agent",
+    "summary": "Policy engine for cloud-native environments enabling unified policy enforcement across microservices, Kubernetes, and APIs.",
+    "category": "Security",
+    "tags": ["policy", "governance", "kubernetes", "authorization", "rego"]
+  },
+  {
+    "id": "istio",
+    "title": "Istio",
+    "summary": "Service mesh platform providing traffic management, security, and observability for microservices without requiring application changes.",
+    "category": "Security",
+    "tags": ["service-mesh", "microservices", "traffic-management", "security", "observability"]
+  },
+  {
+    "id": "sonarqube",
+    "title": "SonarQube",
+    "summary": "Code quality platform for continuous inspection of code to detect bugs, vulnerabilities, and code smells across multiple programming languages.",
+    "category": "Security",
+    "tags": ["code-quality", "static-analysis", "security", "vulnerabilities", "technical-debt"]
+  },
+  {
+    "id": "snyk",
+    "title": "Snyk",
+    "summary": "Developer security platform for finding and fixing vulnerabilities in code, dependencies, containers, and infrastructure as code.",
+    "category": "Security",
+    "tags": ["security", "vulnerability-scanning", "dependencies", "developer-tools", "devsecops"]
+  },
+  {
+    "id": "consul",
+    "title": "HashiCorp Consul",
+    "summary": "Service mesh solution providing service discovery, configuration, and segmentation functionality for distributed applications.",
+    "category": "Security",
+    "tags": ["service-discovery", "service-mesh", "configuration", "networking", "hashicorp"]
+  }
+]

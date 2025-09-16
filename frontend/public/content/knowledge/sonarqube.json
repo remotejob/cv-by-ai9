@@ -1,0 +1,7 @@
+{
+  "id": "sonarqube",
+  "title": "SonarQube",
+  "summary": "Code quality platform for continuous inspection of code to detect bugs, vulnerabilities, and code smells across multiple programming languages.",
+  "category": "Security",
+  "tags": ["code-quality", "static-analysis", "security", "vulnerabilities", "technical-debt"]
+}

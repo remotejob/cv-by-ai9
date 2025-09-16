@@ -1,0 +1,7 @@
+{
+  "id": "podman",
+  "title": "Podman",
+  "summary": "Daemonless container engine for developing, managing, and running OCI containers with enhanced security and rootless operation.",
+  "category": "Containerization",
+  "tags": ["containers", "rootless", "docker-alternative", "security", "pods"]
+}

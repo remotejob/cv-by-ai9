@@ -1,0 +1,7 @@
+{
+  "id": "circleci",
+  "title": "CircleCI",
+  "summary": "Cloud-based continuous integration and delivery platform with powerful workflow automation and parallelization capabilities.",
+  "category": "CI/CD",
+  "tags": ["ci-cd", "cloud", "workflows", "parallelization", "automation"]
+}

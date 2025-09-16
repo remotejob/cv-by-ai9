@@ -1,0 +1,7 @@
+{
+  "id": "istio",
+  "title": "Istio",
+  "summary": "Service mesh platform providing traffic management, security, and observability for microservices without requiring application changes.",
+  "category": "Security",
+  "tags": ["service-mesh", "microservices", "traffic-management", "security", "observability"]
+}

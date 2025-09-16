@@ -1,0 +1,7 @@
+{
+  "id": "jenkins",
+  "title": "Jenkins",
+  "summary": "Open-source automation server for building, testing, and deploying software with extensive plugin ecosystem.",
+  "category": "CI/CD",
+  "tags": ["automation", "ci-cd", "build", "deployment", "plugins"]
+}

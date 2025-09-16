@@ -1,0 +1,7 @@
+{
+  "id": "jaeger",
+  "title": "Jaeger",
+  "summary": "Open-source distributed tracing platform for monitoring and troubleshooting microservices-based architectures.",
+  "category": "Monitoring",
+  "tags": ["tracing", "microservices", "observability", "performance", "distributed"]
+}

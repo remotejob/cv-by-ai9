@@ -1,0 +1,7 @@
+{
+  "id": "gitlab-ci",
+  "title": "GitLab CI/CD",
+  "summary": "Integrated continuous integration and deployment platform built into GitLab for automated testing and deployment pipelines.",
+  "category": "CI/CD",
+  "tags": ["gitlab", "ci-cd", "pipelines", "automation", "git"]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "devsecops-pipeline-framework",
+  "title": "DevSecOps Pipeline Framework",
+  "summary": "Comprehensive DevSecOps pipeline integrating security scanning, compliance checks, and vulnerability management throughout the CI/CD process.",
+  "content": {
+    "description": "# DevSecOps Pipeline Framework\n\nA complete DevSecOps pipeline framework integrating security throughout the development lifecycle.\n\n## Features\n\n- Automated security scanning\n- Compliance verification\n- Vulnerability management\n- Container security\n- Audit logging\n\n## Technical Details\n\n- SAST and DAST integration\n- Container scanning\n- Compliance automation\n- Secret management\n- Security monitoring\n\n## Implementation\n\nThe framework implements security controls and compliance checks at every stage of the CI/CD pipeline, ensuring secure development practices.",
+    "images": []
+  },
+  "tags": ["devsecops", "security", "cicd", "compliance", "automation", "gitlab-ci"],
+  "featured": true,
+  "slug": "devsecops-pipeline-framework",
+  "externalUrl": "https://gitlab.com/devops-labs/devsecops-pipeline-framework"
+}
