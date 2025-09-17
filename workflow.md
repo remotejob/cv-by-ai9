@@ -43,4 +43,4 @@ I want use claude code github actions to make simple modification in code. I exp
 Give me practical instruction for example I wand change "Alex Mazurov" tittle on my navigation bar to "Mazurov". Think hard. 
 
 test line 42 of the fixed auto-commit functionality
-@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
+@claude Change the navigation title from Mazurov to Ivanov in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
