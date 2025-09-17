@@ -39,7 +39,7 @@ export function Navigation() {
               className="rounded-full object-cover"
             />
             <div className="text-accent font-bold text-xl uppercase">
-              Alex Mazurov
+              Mazurov
             </div>
           </div>
           <div className="flex items-center space-x-8">
