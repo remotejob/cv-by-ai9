@@ -19,16 +19,17 @@ jobs:
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pull-requests: read
-      issues: read
+      contents: write # Allow Claude to make commits and pushes
+      pull-requests: write # Allow Claude to create and update PRs
+      issues: write # Allow Claude to comment on issues
       id-token: write
       actions: read # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0 # Fetch full history for proper git operations
+          token: ${{ github.token }} # Use GitHub token for authentication
 
       - name: Run Claude Code
         id: claude
@@ -43,8 +44,7 @@ jobs:
           # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
           # prompt: 'Update the pull request description to include a summary of changes.'
 
-          # Optional: Add claude_args to customize behavior and configuration
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.anthropic.com/en/docs/claude-code/sdk#command-line for available options
-          # claude_args: '--model claude-opus-4-1-20250805 --allowed-tools Bash(gh pr:*)'
+          # Configure Claude to automatically commit and push changes
+          # Enable git operations and automatic commits without confirmation
+          claude_args: '--auto-commit --auto-push --allowed-tools Bash(git:*) --allowed-tools Write --allowed-tools Edit --allowed-tools Read'
 
