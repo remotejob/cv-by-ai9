@@ -34,3 +34,10 @@ Let's try improve frontend let's try apply Figma https://www.figma.com/design/c2
 lets' implement Dark and Light Mode. Use MCP server servel defaultadcn Dark mode
 
 Implement navigation tabs bar on landing page and on navigation bar must be Dark/Light button. Update code. Default Dark mode. Think hard. 
+
+
+@claude I need add my avatar on navigation bar use frontend/public/me_alex.jpg
+
+
+I want use claude code github actions to make simple modification in code. I expect claude code github actions must after code was improved/updated, make commit/push without confirmation from my side.
+Give me practical instruction for example I wand change "Alex Mazurov" tittle on my navigation bar to "Mazurov". Think hard. 
