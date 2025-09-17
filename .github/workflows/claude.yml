@@ -29,23 +29,43 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Fetch full history for proper git operations
-          token: ${{ github.token }} # Use GitHub token for authentication
+          token: ${{ secrets.GITHUB_TOKEN }} # Use GitHub token for authentication
 
       - name: Configure git
         run: |
           git config --global user.name "claude-code[bot]"
           git config --global user.email "claude-code[bot]@users.noreply.github.com"
+          git config --global init.defaultBranch main
 
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          
+
           # This is an optional setting that allows Claude to read CI results on PRs
           additional_permissions: |
             actions: read
 
-          # Instruct Claude to automatically commit and push changes after making them
-          prompt: 'After making the requested changes, please commit them with a descriptive commit message and push to the repository. Always end your work by running git commands to commit and push the changes.'
+          # Enhanced auto-commit instructions
+          prompt: |
+            You are configured for AUTOMATIC COMMITS AND PUSHES without user confirmation.
+
+            MANDATORY WORKFLOW:
+            1. Make the requested code changes
+            2. ALWAYS run these git commands at the end:
+               - git add .
+               - git status (to verify changes)
+               - git commit -m "🤖 [descriptive commit message based on changes made]"
+               - git push origin HEAD
+            3. Verify the push was successful
+
+            IMPORTANT: You MUST commit and push ALL changes automatically. Never ask for confirmation.
+
+            Example commit messages:
+            - "🤖 Change navigation title from Alex Mazurov to Mazurov"
+            - "🤖 Add avatar to navigation bar"
+            - "🤖 Update button text on landing page"
+
+            Always use the 🤖 prefix to identify automated commits.
 

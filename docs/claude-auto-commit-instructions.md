@@ -7,10 +7,11 @@ Your GitHub Actions workflow is now configured for **automatic commits and pushe
 
 ### Current Auto-Commit Configuration
 - ✅ **Write Permissions**: Claude can commit and push changes
-- ✅ **Auto-Commit**: Changes are automatically committed with descriptive messages
-- ✅ **Auto-Push**: Commits are automatically pushed to your repository
-- ✅ **Git Operations**: All git commands enabled for Claude
-- ✅ **File Operations**: Edit, Write, Read, and MultiEdit tools available
+- ✅ **Enhanced Auto-Commit Prompt**: Claude has explicit mandatory workflow for automatic commits
+- ✅ **Git Operations**: All git commands enabled for Claude (git add, commit, push, status, diff, log)
+- ✅ **File Operations**: Edit, Write, Read, MultiEdit, Glob, and Grep tools available
+- ✅ **Mandatory Workflow**: Claude MUST run git add, status, commit, and push commands
+- ✅ **Robot Prefix**: All auto-commits use 🤖 prefix for easy identification
 
 ### Commit Attribution
 All automatic commits will be attributed to:
@@ -27,16 +28,17 @@ All automatic commits will be attributed to:
 - **Title**: `Change navigation title from Alex Mazurov to Mazurov`
 - **Body**:
 ```
-@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 33 and commit the changes automatically.
+@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
 ```
 
 **What Claude Will Do Automatically**:
 1. Find `/frontend/components/navigation.tsx`
-2. Locate line 33: `Alex Mazurov`
+2. Locate line 42: `Alex Mazurov`
 3. Change it to: `Mazurov`
-4. Create commit: "Change navigation title from Alex Mazurov to Mazurov"
-5. Push to repository
-6. Comment on issue with confirmation
+4. Run git add, git status, git commit, git push
+5. Create commit: "🤖 Change navigation title from Alex Mazurov to Mazurov"
+6. Push to repository
+7. Comment on issue with confirmation
 
 **Expected Result**: Navigation bar will show "MAZUROV" instead of "ALEX MAZUROV"
 
@@ -201,7 +203,7 @@ Please make all changes in a single commit.
 2. **Title**: `Test auto-commit: Change navigation title`
 3. **Body**:
 ```
-@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 33 and commit the changes automatically.
+@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
 
 This is a test of the auto-commit functionality.
 ```
