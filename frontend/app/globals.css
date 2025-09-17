@@ -117,7 +117,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
   }
   .dark {
     background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(39, 39, 39, 1) 44%, rgba(73, 73, 73, 1) 100%, rgba(114, 114, 114, 1) 100%);

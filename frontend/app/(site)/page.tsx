@@ -19,7 +19,7 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="py-20 px-4" aria-labelledby="hero-heading">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="text-heading-lg text-gray-5 mb-4">
+          <div className="text-heading-lg text-muted-foreground mb-4">
             Hello, i am
           </div>
           <h1 id="hero-heading" className="text-heading-xl font-bold text-accent mb-8">
@@ -50,9 +50,9 @@ export default async function HomePage() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4 bg-dark-bg" aria-labelledby="skills-heading">
+      <section className="py-16 px-4 bg-secondary/50" aria-labelledby="skills-heading">
         <div className="max-w-7xl mx-auto">
-          <h2 id="skills-heading" className="text-heading-lg font-bold text-white mb-12">
+          <h2 id="skills-heading" className="text-heading-lg font-bold text-foreground mb-12">
             skills()
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6" role="list" aria-label="Core technologies and skills">
@@ -66,16 +66,16 @@ export default async function HomePage() {
       {/* Projects Section */}
       <section className="py-16 px-4" aria-labelledby="projects-heading">
         <div className="max-w-7xl mx-auto">
-          <h2 id="projects-heading" className="text-heading-lg font-bold text-white mb-12">
+          <h2 id="projects-heading" className="text-heading-lg font-bold text-foreground mb-12">
             projects()
           </h2>
 
           {featuredProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredProjects.map((project) => (
-                <Card key={project.id} className="bg-card-bg border-gray-700 hover:border-accent transition-colors">
+                <Card key={project.id} className="bg-card border-border hover:border-accent transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-white text-heading-md">{project.title}</CardTitle>
+                    <CardTitle className="text-card-foreground text-heading-md">{project.title}</CardTitle>
                     {project.featured && (
                       <div className="inline-block bg-accent text-black px-2 py-1 rounded text-xs font-bold">
                         FEATURED
@@ -83,7 +83,7 @@ export default async function HomePage() {
                     )}
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-5 text-body mb-4">
+                    <CardDescription className="text-muted-foreground text-body mb-4">
                       {project.summary}
                     </CardDescription>
                     {project.tags.length > 0 && (
@@ -91,7 +91,7 @@ export default async function HomePage() {
                         {project.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs bg-gray-700 text-gray-300 px-2 py-1 rounded"
+                            className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded"
                           >
                             {tag}
                           </span>
@@ -106,7 +106,7 @@ export default async function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="text-center text-gray-5">
+            <div className="text-center text-muted-foreground">
               <p className="text-body">No featured projects available yet.</p>
             </div>
           )}
@@ -127,9 +127,9 @@ export default async function HomePage() {
       </section>
 
       {/* Companies Section */}
-      <section className="py-16 px-4 bg-dark-bg" aria-labelledby="companies-heading">
+      <section className="py-16 px-4 bg-secondary/50" aria-labelledby="companies-heading">
         <div className="max-w-7xl mx-auto">
-          <h2 id="companies-heading" className="text-heading-lg font-bold text-white mb-12">
+          <h2 id="companies-heading" className="text-heading-lg font-bold text-foreground mb-12">
             companies()
           </h2>
           <div className="space-y-4">
@@ -138,8 +138,8 @@ export default async function HomePage() {
                 <span className="text-sm">•</span>
               </div>
               <div>
-                <h3 className="text-white font-semibold">Tech Company A</h3>
-                <p className="text-gray-5 text-sm">Senior DevOps Engineer</p>
+                <h3 className="text-foreground font-semibold">Tech Company A</h3>
+                <p className="text-muted-foreground text-sm">Senior DevOps Engineer</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -147,8 +147,8 @@ export default async function HomePage() {
                 <span className="text-sm">•</span>
               </div>
               <div>
-                <h3 className="text-white font-semibold">Tech Company B</h3>
-                <p className="text-gray-5 text-sm">DevOps Engineer</p>
+                <h3 className="text-foreground font-semibold">Tech Company B</h3>
+                <p className="text-muted-foreground text-sm">DevOps Engineer</p>
               </div>
             </div>
           </div>
