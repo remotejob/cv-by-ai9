@@ -30,7 +30,7 @@ export function Navigation() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-accent font-bold text-xl uppercase">
-            johnDoe
+            Alex Mazurov
           </div>
           <div className="flex items-center space-x-8">
             <div className="flex space-x-8">
