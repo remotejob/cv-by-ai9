@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/theme-toggle'
+import Image from 'next/image'
 
 const navItems = [
   { href: '/', label: 'About' },
@@ -29,8 +30,17 @@ export function Navigation() {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-accent font-bold text-xl uppercase">
-            Alex Mazurov
+          <div className="flex items-center space-x-3">
+            <Image
+              src="/me_alex.jpg"
+              alt="Alex Mazurov"
+              width={40}
+              height={40}
+              className="rounded-full object-cover"
+            />
+            <div className="text-accent font-bold text-xl uppercase">
+              Alex Mazurov
+            </div>
           </div>
           <div className="flex items-center space-x-8">
             <div className="flex space-x-8">

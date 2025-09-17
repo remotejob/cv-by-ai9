@@ -46,10 +46,10 @@ jobs:
           additional_permissions: |
             actions: read
 
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
+          # Instruct Claude to automatically commit and push changes after making them
+          prompt: 'After making the requested changes, please commit them with a descriptive commit message and push to the repository. Always end your work by running git commands to commit and push the changes.'
 
-          # Configure Claude for automatic commits and pushes without confirmation
-          # Enable git operations, file editing, and automatic commit/push functionality
-          claude_args: '--auto-commit --auto-push --allowed-tools Bash(git:*) --allowed-tools Write --allowed-tools Edit --allowed-tools Read --allowed-tools MultiEdit'
+          # Configure Claude for file editing and git operations
+          # Claude will use git commands to commit and push changes automatically
+          claude_args: '--allowed-tools Bash(git:*) --allowed-tools Write --allowed-tools Edit --allowed-tools Read --allowed-tools MultiEdit --allowed-tools Glob --allowed-tools Grep'
 
