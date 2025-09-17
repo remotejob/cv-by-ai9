@@ -33,4 +33,4 @@ Let's try improve frontend let's try apply Figma https://www.figma.com/design/c2
 
 lets' implement Dark and Light Mode. Use MCP server servel defaultadcn Dark mode
 
-Implement navigation tabs bar on landing page and on navigation bar must be Dark/Light button. Update code.  
+Implement navigation tabs bar on landing page and on navigation bar must be Dark/Light button. Update code. Default Dark mode. Think hard. 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Navigation } from "@/components/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Navigation />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <footer className="p-8 text-center text-muted-foreground">
+            <p className="text-body">© 2024 Alex Mazurov Portfolio. All rights reserved.</p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
