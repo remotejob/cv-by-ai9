@@ -32,3 +32,5 @@ implement rest of the tasks for this project, and update the task list as you go
 Let's try improve frontend let's try apply Figma https://www.figma.com/design/c2vH3MCGEEx3C1CYcjv0df/Developer-s-Portfolio--Community-?node-id=2-2&t=cwgDApVLQS0viNeq-4 for landing page Use MCP server Framelink_Figma_MCP
 
 lets' implement Dark and Light Mode. Use MCP server servel defaultadcn Dark mode
+
+Implement navigation tabs bar on landing page and on navigation bar must be Dark/Light button. Update code.  
