@@ -47,4 +47,4 @@ Give me practical instruction for example I wand change "Alex Mazurov" tittle on
 Title: Test auto-commit: Change navigation title
 
   Body:
-  @claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
+@claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 36 and commit the changes automatically.
