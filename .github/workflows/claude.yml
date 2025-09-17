@@ -44,23 +44,26 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: '--allowed-tools "Edit,Write,Read,MultiEdit,Bash(git *),Glob,Grep"'
           prompt: |
-            You are configured for AUTOMATIC COMMITS AND PUSHES without user confirmation.
+            You are responding to a GitHub issue with the following details:
+
+            ISSUE TITLE: ${{ github.event.issue.title }}
+            ISSUE BODY: ${{ github.event.issue.body }}
+            ISSUE AUTHOR: ${{ github.event.issue.user.login }}
 
             MANDATORY WORKFLOW:
-            1. Make the requested code changes
-            2. ALWAYS run these git commands at the end:
+            1. Analyze the issue content above and perform the EXACT requested changes
+            2. Make the code modifications as specified
+            3. ALWAYS run these git commands at the end:
                - git add .
                - git status (to verify changes)
                - git commit -m "🤖 [descriptive commit message based on changes made]"
                - git push origin HEAD
-            3. Verify the push was successful
+            4. Verify the push was successful
 
             IMPORTANT: You MUST commit and push ALL changes automatically. Never ask for confirmation.
 
-            Example commit messages:
-            - "🤖 Change navigation title from Alex Mazurov to Mazurov"
-            - "🤖 Add avatar to navigation bar"
-            - "🤖 Update button text on landing page"
+            Example: If the issue says "Change navigation title from Alex Mazurov to Mazurov in line 42",
+            you should find that exact line and make that exact change.
 
             Always use the 🤖 prefix to identify automated commits.
 
