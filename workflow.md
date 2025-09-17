@@ -41,3 +41,10 @@ Implement navigation tabs bar on landing page and on navigation bar must be Dark
 
 I want use claude code github actions to make simple modification in code. I expect claude code github actions must after code was improved/updated, make commit/push without confirmation from my side.
 Give me practical instruction for example I wand change "Alex Mazurov" tittle on my navigation bar to "Mazurov". Think hard. 
+
+
+
+Title: Test auto-commit: Change navigation title
+
+  Body:
+  @claude Change the navigation title from "Alex Mazurov" to "Mazurov" in /frontend/components/navigation.tsx line 42 and commit the changes automatically.
