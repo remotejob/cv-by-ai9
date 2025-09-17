@@ -49,7 +49,3 @@ jobs:
           # Instruct Claude to automatically commit and push changes after making them
           prompt: 'After making the requested changes, please commit them with a descriptive commit message and push to the repository. Always end your work by running git commands to commit and push the changes.'
 
-          # Configure Claude for file editing and git operations
-          # Claude will use git commands to commit and push changes automatically
-          claude_args: '--allowed-tools Bash(git:*) --allowed-tools Write --allowed-tools Edit --allowed-tools Read --allowed-tools MultiEdit --allowed-tools Glob --allowed-tools Grep'
-
