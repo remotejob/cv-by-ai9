@@ -42,7 +42,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude_args: '--allowed-tools "Edit,Write,Read,MultiEdit,Bash(git *),Glob,Grep"'
+          claude_args: '--allowed-tools "Edit,Write,Read,MultiEdit,Bash(git *),Glob,Grep" --dangerously-skip-permissions'
           prompt: |
             You are responding to a GitHub issue with the following details:
 
@@ -62,7 +62,7 @@ jobs:
 
             IMPORTANT: You MUST commit and push ALL changes automatically. Never ask for confirmation.
 
-            Example: If the issue says "Change navigation title from Alex Mazurov to Mazurov in line 42",
+            Example: If the issue says "Change navigation title from Alex Mazurov to Mazurov",
             you should find that exact line and make that exact change.
 
             Always use the 🤖 prefix to identify automated commits.
